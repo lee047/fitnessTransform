@@ -1,0 +1,219 @@
+
+@import '../../index.css';
+
+.hero-container{
+    background-image:url('../../../public/images/Hero-Bg.jpg');
+    height: 90vh;
+    background-size: cover;
+}
+
+.hero-text-container{
+    display: flex;
+    width: 50%;
+    height: 90%;
+    flex-direction: column;
+    padding: 2rem 2rem;
+    justify-content: flex-start;
+}
+
+.hero-header{
+    padding-top: 6rem;
+    color: var(--white-color);
+    font-size: var(--super-large-header-fontsize);
+    font-weight: var(--bold-font-weight);
+}
+
+.hero-header-subtext{
+    padding-top: 1rem;
+    font-size: 2rem;
+    color: var(--white-color);
+    font-weight: 300;
+}
+
+
+.yellow-banner{
+    display: inline-block;
+    background-color: var(--primary-yellow);
+    color: var(--white-color);
+    font-weight: 500;
+    font-size: 3rem;
+    overflow-y: hidden;
+    max-width: 100%;
+    /* overflow-x: hidden;  */
+    white-space: nowrap;
+    max-height: 75px;
+}
+
+
+
+.first-featuer-container{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--primary-black);
+    padding: 10% 1rem;
+    justify-content: space-between;
+}
+
+.first-featuer-container img {
+    height: 380px;
+    width: 480px;
+    border-radius: 20px;
+}
+
+.featuers-wrapper{
+    position: relative;
+}
+
+.featuers-text-wrapper{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 70%;
+    right: 0;
+    color: var(--white-color);
+    
+}
+
+.featuers-text-wrapper p {
+    padding-left: 1.5rem;
+    letter-spacing: 0.5rem;
+}
+
+.featuers-text-wrapper h3{
+    padding-top: 0.1rem;
+    padding-left: 1.5rem;
+    width: 70%;
+}
+
+.explore-exercise-hero{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 5% 5%;
+}
+
+.explore-exercise-wrapper{
+    display: flex;
+    flex-direction: row;
+    margin: 10% 0%;
+    /* padding: 0 10%; */
+    justify-content: space-around;
+    width: 100%;
+    
+}
+
+.explore-exercise-results-wrapper {
+    
+}
+
+.explore-exercise-results p {
+    padding: 1rem 5rem;
+    background-color: var(--primary-black);
+    color: var(--white-color);
+    border-radius: 10px;
+    margin: 1rem;
+    font-size: 1.5rem;
+}
+
+.explore-exercise-options-wrapper{
+   
+
+}
+.explore-exercise-options{
+   
+
+}
+.explore-exercise-options p {
+   padding: 0.5rem 3rem;
+   margin: 1.5rem 0rem;
+   font-size: 1.8rem;
+   font-weight: 400;
+   border-left: 4px solid var(--primary-yellow);
+
+}
+
+/* product featuer */
+
+.product-featuer-container {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--primary-black);
+    justify-content: space-between;
+    padding: 10% 2rem;
+}
+
+.product-featuer-container img {
+    border-radius: 20px;
+    height: 350px;
+}
+
+.product-featuer-text-container {
+
+}
+.product-featuer-text-container h3 {
+    background-color: #042A18;
+    color: var(--white-color);
+    font-weight: 500;
+    border-radius: 20px;
+    font-size: 3.3rem;
+    max-height: 350px;
+    max-width: 300px;
+    padding: 2rem;
+}
+
+.parallex-banner-container{
+    background-image: url('../../../public/images/parallex-banner2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.parallex-banner-container-text{
+    padding-top: 3rem;
+}
+
+.parallex-banner-container-text h1{
+    color: var(--white-color);
+    font-size: 4rem;
+}
+
+.parallex-banner-container-btn{
+    padding-top: 2rem;
+    padding-left: 40%;
+   
+}
+
+.btn{
+    margin: 2rem 2rem;
+    background-color: var(--primary-yellow);
+    padding: 0.8rem 2rem;
+    font-size: 2rem;
+    border-radius: 20px;
+    color: var(--primary-black);
+}
+
+.class-scheduler-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5% 0;
+}
+
+.class-scheduler-options-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.class-scheduler-options-container a {
+    padding: 1rem;
+    background-color: var(--primary-yellow);
+    border-radius: 10px;
+    color: var(--primary-black);
+}

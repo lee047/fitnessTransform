@@ -78,6 +78,9 @@ button:focus-visible {
   --white-color: #FFFFFF;
     padding: 0; 
     margin: 0;
+
+  --super-large-header-fontsize: 5rem;
+  --bold-font-weight: 600;
 }
 
 ul{
@@ -91,10 +94,28 @@ body{
   margin: 0;
 }
 
+p{
+  padding: 0;
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+  color: var(--white-color);
+}
+h1, h2, h3{
+  margin: 0;
+  padding: 0;
+}
 
 
-
-
+/* customize global css */
+.section-header{
+  color:var(--primary-yellow);
+  font-size: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 4px solid var(--primary-yellow);
+}
 
 /* Header Start */
 
@@ -136,3 +157,71 @@ body{
 
 
 /* Header End */
+
+
+/* Subscribe Start */
+
+.subscribe-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--primary-dark-grey);
+  padding: 8% 0;
+}
+
+.subscribe-text-container{
+  display: flex;
+  flex-direction: column;
+  color: var(--white-color);
+}
+
+.subscribe-text-container p{
+  letter-spacing: .4rem;
+}
+
+.subscribe-text-container h1{
+  letter-spacing: .1rem;
+  font-size: 3.5rem;
+}
+.subscribe-btn-container{
+  display: flex;
+  flex-direction: row;
+  background-color: var(--white-color);
+  border-radius: 10px;
+  color: var(--primary-black);
+}
+
+.subscribe-btn-container input{
+  margin-right: -2rem;
+  padding: 2rem 2rem 2rem 2rem;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.subscribe-btn-container a{
+  padding: 1.95rem 2rem 2.05rem 2rem;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color:var(--primary-yellow);
+  color: var(--primary-black);
+  box-shadow: -1px 0px 5px 0px #000;
+  
+
+}
+
+/* Subscribe End */
+
+/* Footer Start */
+
+.footer-container{
+  display: flex;
+  flex-direction: row;
+  background-color: var(--primary-black);
+  color: var(--white-color);
+  padding: 1rem;
+  justify-content: space-around;
+}
+
+/* Footer Start */

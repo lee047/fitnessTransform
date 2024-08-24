@@ -6,15 +6,19 @@ export const Explore = () => {
     <div className='explore-exercise-hero'>
       <h1>Explore Workouts and Exercises</h1>
       <div className='explore-exercise-wrapper'>
-        <div className='explore-exercise-results'>
+        <div className='explore-exercise-results-wrapper'>
+         <div className='explore-exercise-results'>
           <p>Squats</p>
           <p>Squats</p>
           <p>Squats</p>
+         </div>
         </div>
-        <div className='explore-exercise-options'>
-          <p>Legs</p>
-          <p>Legs</p>
-          <p>Legs</p>
+        <div className='explore-exercise-options-wrapper'>
+          <div className='explore-exercise-options'>
+            <p>Legs</p>
+            <p>Legs</p>
+            <p>Legs</p>
+          </div>
         </div>
       </div>
     </div>

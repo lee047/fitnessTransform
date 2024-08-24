@@ -1,0 +1,18 @@
+.exercise-header{
+    background-image: url('../../../public/images/exercise-header.jpg');
+    background-size: auto;
+    background-repeat: no-repeat;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5% 0;
+}
+
+.exercise-options-container{
+
+}
+
+.exercise-results-container{
+
+}

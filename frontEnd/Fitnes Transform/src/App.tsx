@@ -6,6 +6,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import {Home }from './pages/home/home'
 import {ContactUs }from './pages/contact/contactUs'
+import {ExercisePage }from './pages/exercise/exercise'
 
 function App() {
 
@@ -13,9 +14,10 @@ function App() {
     <>
       <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />}>
-          {/* <Route index element={<Home />} /> */}
-          <Route path="Contact US" element={<ContactUs />} />
+        <Route path="/">
+          <Route index element={<Home />} />
+          <Route path="Contact-Us" element={<ContactUs />} />
+          <Route path="Exercise" element={<ExercisePage />} />
          
         </Route>
       </Routes>

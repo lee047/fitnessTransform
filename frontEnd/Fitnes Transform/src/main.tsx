@@ -14,7 +14,7 @@ createRoot(document.getElementById('root')!).render(
           <div className='nav-container'>
             <ul>
               <li><a href='/'>HOME</a> </li>
-              <li><a href='#'>EXERCISE</a> </li>
+              <li><a href='/Exercise'>EXERCISE</a> </li>
               <li><a href='/Contact-Us'>CONTACT US</a> </li>
             </ul>  
           </div>

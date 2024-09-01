@@ -42,9 +42,27 @@
     /* overflow-x: hidden;  */
     white-space: nowrap;
     max-height: 75px;
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
 }
 
+.yellow-banner::-webkit-scrollbar{
+    display: none;
+}
 
+.yellow-banner-scroll{
+    animation: yellow-banner-infinte-scroll 20s linear infinite;
+}
+
+@keyframes yellow-banner-infinte-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+    
+}
 
 .first-featuer-container{
     display: flex;

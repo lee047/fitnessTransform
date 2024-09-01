@@ -15,6 +15,13 @@
 .exercise-options-container{
     padding: 2rem;
 }
+.exercise-options-container .selected{
+   font-size: 2rem;
+   background-color: var(--primary-dark-grey);
+   color: var(--primary-yellow);
+   border: 2px solid var(--primary-yellow);
+}
+
 .exercise-options-container span{
     padding: 1rem;
     margin: 1rem;
@@ -66,6 +73,14 @@
 
 .exercise-results-scroll::-webkit-scrollbar{
     display: none;
+}
+
+.no-data-wrapper{
+   display: flex;
+   flex-direction: row;
+}
+
+.exercise-results-scroll .no-data-wrapper .no-data{
 }
 
 .exercise-content-container{

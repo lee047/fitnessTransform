@@ -1,41 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { PageHeader } from '../../components/pageHeader'
+import {bodyparts, equipments, targets} from '../../../utilities/data'
 
 import './exercise.css'
 
 export const ExercisePage = () => {
-    function me(input: string){
-    alert("you clicked this " + input);
+
+
+    const [TargetData, setTargetData] = useState<string[]>([]);
+    console.log(TargetData);
+    console.log(Array.isArray(TargetData));
+    function getTragetData(input: string){
+    if(input == "bodyparts"){
+        setTargetData(bodyparts);
+    }
+    else if(input == 'equipment'){
+        setTargetData(equipments);
+    }else if(input == 'target'){
+        setTargetData(targets);
+    }
+    console.log(TargetData);
     return true
 }
+
+
 const exercisePageBredcrumbs = [{ page : 'Home' , pageUrl: '/'},{page:'Exercise',pageUrl:'/Exercise' }]
   return (
     <>
+    
         <PageHeader pageTitile={"Exercise"} pageBreadcrums={exercisePageBredcrumbs}/>
         <div className='exercise-header'>
             <h3>Explore Workouts</h3>
             <div className='exercise-options-container'>
-                <span onClick={()=> {me("bodyparts")}}>BodyParts</span>
-                <span onClick={()=> {me("bodyparts")}}>Equipment</span>
-                <span onClick={()=> {me("bodyparts")}}>Target Muscle </span>
+                <span onClick={()=> {getTragetData("bodyparts")}} className='selected'>BodyParts</span>
+                <span onClick={()=> {getTragetData("equipment")}}>Equipment</span>
+                <span onClick={()=> {getTragetData("target")}}>Target Muscle </span>
             </div>
         </div>
         <div className='exercise-results-container'>
           <div className='exercise-results-wrapper'>
-            {/* <div className='exercise-results-scroll-start'></div> */}
           <div className='exercise-results-scroll'>
-                <p>Back</p>
-                <p>Cardio</p>
-                <p>Chest </p>
-                <p>Lower Arms</p>
-                <p>Neck</p>
-                <p>Target Muscle </p>
-                <p>Back</p>
-                <p>Cardio</p>
-                <p>Chest </p>
-                <p>Lower Arms</p>
-                <p>Neck</p>
-                <p>Target Muscle </p>
+            {TargetData.length > 0 &&
+                   TargetData.map((e) => { return <p>{e}</p>})
+                }
+            {TargetData.length == 0 && 
+            <div className='no-data-wrapper'>
+                <p className='no-data'>Please select the categories above</p>
+            </div>
+            }
            </div>
           </div>
         </div>

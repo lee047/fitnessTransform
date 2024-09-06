@@ -8,16 +8,20 @@ export const ExercisePage = () => {
 
 
     const [TargetData, setTargetData] = useState<string[]>([]);
+    const [isMainElementActive, setisMainElementActive] = useState('');
     console.log(TargetData);
     console.log(Array.isArray(TargetData));
     function getTragetData(input: string){
     if(input == "bodyparts"){
         setTargetData(bodyparts);
+        setisMainElementActive('bodyparts');
     }
     else if(input == 'equipment'){
         setTargetData(equipments);
+        setisMainElementActive('equipment');
     }else if(input == 'target'){
         setTargetData(targets);
+        setisMainElementActive('target');
     }
     console.log(TargetData);
     return true
@@ -32,9 +36,9 @@ const exercisePageBredcrumbs = [{ page : 'Home' , pageUrl: '/'},{page:'Exercise'
         <div className='exercise-header'>
             <h3>Explore Workouts</h3>
             <div className='exercise-options-container'>
-                <span onClick={()=> {getTragetData("bodyparts")}} className='selected'>BodyParts</span>
-                <span onClick={()=> {getTragetData("equipment")}}>Equipment</span>
-                <span onClick={()=> {getTragetData("target")}}>Target Muscle </span>
+                <span onClick={()=> {getTragetData("bodyparts")}} className={isMainElementActive =='bodyparts' ? 'selected': ''}>BodyParts</span>
+                <span onClick={()=> {getTragetData("equipment")}} className={isMainElementActive =='equipment' ? 'selected': ''}>Equipment</span>
+                <span onClick={()=> {getTragetData("target")}}    className={isMainElementActive =='target' ? 'selected': ''}>Target Muscle </span>
             </div>
         </div>
         <div className='exercise-results-container'>
@@ -52,15 +56,27 @@ const exercisePageBredcrumbs = [{ page : 'Home' , pageUrl: '/'},{page:'Exercise'
           </div>
         </div>
         <div className='exercise-content-container'>
-            <div className='exercise-options-container'> 
-                <h3>Exercise Body Parts</h3>
-                <div className='exercise-options-wrapper'>
+            <div className='exercise-suboptions-container'> 
+                <h3>Exercise</h3>
+                <div className='top-arrow'>
+                    <img src='../../../public/images/arrow-right-solid-black.png'/>
+                </div>
+                <div className='exercise-suboptions-wrapper'>
                     <p>All Four Squad Strech</p>
                     <p>All Four Squad Strech</p>
                     <p>All Four Squad Strech</p>
                     <p>All Four Squad Strech</p>
                     <p>All Four Squad Strech</p>
                     <p>All Four Squad Strech</p>
+                    <p>All Four Squad Strech</p>
+                    <p>All Four Squad Strech</p>
+                    <p>All Four Squad Strech</p>
+                    <p>All Four Squad Strech</p>
+                    <p>All Four Squad Strech</p>
+                    <p>All Four Squad Strech</p>
+                </div>
+                <div className='bottom-arrow'>
+                    <img src='../../../public/images/arrow-right-solid-black.png'/>
                 </div>
             </div>
             <div className='exercise-container'>

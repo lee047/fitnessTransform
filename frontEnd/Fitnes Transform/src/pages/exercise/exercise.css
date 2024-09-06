@@ -16,7 +16,7 @@
     padding: 2rem;
 }
 .exercise-options-container .selected{
-   font-size: 2rem;
+   font-size: 2.3rem;
    background-color: var(--primary-dark-grey);
    color: var(--primary-yellow);
    border: 2px solid var(--primary-yellow);
@@ -46,6 +46,7 @@
     cursor: pointer;
 }
 
+
 /* .exercise-results-scroll-start{
     height: 100px;
     width: 100px;
@@ -63,8 +64,8 @@
 .exercise-results-scroll{
     display: flex;
     flex-direction: row;
-    overflow-x: scroll;
     align-items: center;
+    overflow-x: scroll;
     text-wrap: nowrap;
 
    -ms-overflow-style: none;  
@@ -89,8 +90,47 @@
     justify-content: space-evenly;
 }
 
+.exercise-suboptions-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+  }
 
+.exercise-suboptions-container h3{
+    font-size: 1.3rem;
+    margin-bottom: 10%;
+}  
 
+.exercise-suboptions-container .top-arrow{
+
+}
+.exercise-suboptions-container .top-arrow img, .exercise-suboptions-container .bottom-arrow img{
+    width: 40px;
+}
+
+.bottom-arrow img {
+    transform: rotate(-180deg);
+}
+ .exercise-suboptions-wrapper{
+    max-height: 300px;
+    overflow-y: scroll;
+    text-wrap: nowrap;
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+ } 
+
+.exercise-suboptions-wrapper::-webkit-scrollbar{
+    display: none;
+}
+
+.exercise-suboptions-wrapper p{
+    padding: 0.5rem;
+    margin: 0.2rem;
+    background-color: var(--primary-black);
+    color: var(--white-color);
+    border-radius: 10px;
+}
 
 .exercise-container {
     display: flex;

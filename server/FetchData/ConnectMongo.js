@@ -48,9 +48,10 @@ export async function readData(databaseName, collectionName, query){
     
     const myDB = client.db(databaseName);
     const myColl = myDB.collection(collectionName);
+    // const cursor = await myColl.find(query);
     const cursor = await myColl.find(query).toArray();
-    console.log('fetching data from mongodb: ');
-    console.log(cursor);
+    // console.log(query);
+    // console.log(cursor);
     return cursor;
   }
   finally {

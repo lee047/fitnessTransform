@@ -1,15 +1,27 @@
-const express = require('express')
+// const express = require('express')
+import express, { query } from 'express'
 const app = express()
 const port = 3000
 
-var exerciseData = require('./data/exercise.json');
-var equipmentData = require('./data/EquipmentAllSubData.json');
-var bodypartsData = require('./data/bodyPartListSubParts.json');
+import {readData} from './FetchData/ConnectMongo.js'
 
-app.get('/exercise', (req, res) => {
-  res.json(exerciseData);
+// var exerciseData = require('./data/exercise.json');
+// var equipmentData = require('./data/EquipmentAllSubData.json');
+// var bodypartsData = require('./data/bodyPartListSubParts.json');
+
+import exerciseData from './data/exercise.json' assert { type: "json" };
+import equipmentData from './data/EquipmentAllSubData.json' assert { type: "json" };
+import bodypartsData from './data/bodyPartListSubParts.json' assert { type: "json" };
+
+app.get('/exercise', async (req, res) => {
+  const cursor = await readData('ExerciseDB','exercise',{});
+  res.json(cursor);
 })
-
+app.get('/exercise/:exericseName', async (req, res) => {
+  const query = {name : req.params}
+  const cursor = await readData('ExerciseDB','ExerciseByName',query);
+  res.json(cursor)
+})
 app.get('/equipment', (req, res) => {
   res.json(equipmentData);
 })

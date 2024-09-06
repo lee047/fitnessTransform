@@ -1,9 +1,11 @@
 {
   "scripts": {
-    "start": "nodemon my_file.js"
+    "start": "nodemon index.js"
   },
+  "type": "module",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "mongodb": "6.8"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"

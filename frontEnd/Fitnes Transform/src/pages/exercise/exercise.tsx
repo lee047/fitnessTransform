@@ -121,11 +121,13 @@ const exercisePageBredcrumbs = [{ page : 'Home' , pageUrl: '/'},{page:'Exercise'
                     <img src='../../../public/images/arrow-right-solid-black.png'/>
                 </div>
             </div>
-            { ExerciseDetailsData.length > 0 && 
             <>
-            <div></div>
+            {console.log(Object.keys(ExerciseDetailsData).length)}
+            </>
+            { Object.keys(ExerciseDetailsData).length > 0 && 
+            <>
             <ExerciseContainerDisplay ExerciseDetailData={ExerciseDetailsData} /></>}
-            { ExerciseDetailsData.length == 0 && 
+            { Object.keys(ExerciseDetailsData).length == 0 && 
             <>
            <p>showing data in soon</p></>}
            

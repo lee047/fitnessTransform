@@ -1,6 +1,7 @@
 // const express = require('express')
 import express, { query } from 'express'
 import cors from 'cors'
+import bodyParser from 'body-parser'
 const app = express()
 const port = 3000
 import {readData, readSpecificData} from './FetchData/ConnectMongo.js'
@@ -14,6 +15,12 @@ const corsOptions = {
 
 
 app.use(cors(corsOptions));
+// create application/json parser
+app.use(bodyParser.json())
+
+// create application/x-www-form-urlencoded parser
+app.use(bodyParser.urlencoded({ extended: false }))
+
 
 
 app.get('/exercise', async (req, res) => {
@@ -25,7 +32,7 @@ app.get('/exercise/:exerciseid', async (req, res) => {
   const query = {Name : req.params.exerciseid}
   const cursor = await readData('ExerciseDB','ExerciseByID',query);
   console.log(query);
-  console.log(cursor);
+  console.log(cursor);  
   res.json(cursor);
 })
 
@@ -102,6 +109,13 @@ app.get('/targetlistdetail/:targetdetail', async (req, res) => {
   console.log(getTargetList);
   res.json(getTargetList);
 })
+
+app.post('/subscribe', (req, res) => {
+  console.log('post Data')
+  console.log(req.body.emailSubscribe)
+  res.json({'post': 'success'});
+})
+
 
 app.get('/bodyparts', (req, res) => {
   res.json(bodypartsData);

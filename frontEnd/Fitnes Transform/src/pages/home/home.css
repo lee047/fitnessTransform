@@ -9,18 +9,34 @@
 
 .hero-text-container{
     display: flex;
+    position: relative;
     width: 50%;
     height: 90%;
     flex-direction: column;
     padding: 2rem 2rem;
     justify-content: flex-start;
+    animation: leftToRight 1s linear;
 }
+
+@keyframes leftToRight {
+    0%{
+        left: -500px;
+    }
+    50%{
+        left: -200px;
+    }
+    100%{
+        left:0px;
+    }
+}
+
 
 .hero-header{
     padding-top: 6rem;
     color: var(--white-color);
     font-size: var(--super-large-header-fontsize);
     font-weight: var(--bold-font-weight);
+    
 }
 
 .hero-header-subtext{
@@ -121,7 +137,20 @@
 }
 
 .explore-exercise-results-wrapper {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.explore-exercise-results {
+    overflow-y: scroll;
+    text-wrap: nowrap;
+    max-height: 300px;
+    -ms-overflow-style: none;  
+  scrollbar-width: none; 
+}
+
+.explore-exercise-results::-webkit-scrollbar{
+    display: none;
 }
 
 .explore-exercise-results p {
@@ -138,9 +167,18 @@
 
 }
 .explore-exercise-options{
-   
+    overflow-y: scroll;
+    text-wrap: nowrap;
+    max-height: 300px;
+    -ms-overflow-style: none;  
+  scrollbar-width: none; 
 
 }
+
+.explore-exercise-options::-webkit-scrollbar{
+    display: none;
+}
+
 .explore-exercise-options p {
    padding: 0.5rem 3rem;
    margin: 1.5rem 0rem;
@@ -183,6 +221,7 @@
     background-image: url('../../../public/images/parallex-banner2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -235,3 +274,4 @@
     border-radius: 10px;
     color: var(--primary-black);
 }
+

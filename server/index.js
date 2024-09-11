@@ -4,7 +4,7 @@ import cors from 'cors'
 import bodyParser from 'body-parser'
 const app = express()
 const port = 3000
-import {readData, readSpecificData} from './FetchData/ConnectMongo.js'
+import {insertOneData, readData, readSpecificData} from './FetchData/ConnectMongo.js'
 
 const corsOptions = {
   origin: "*",
@@ -110,10 +110,45 @@ app.get('/targetlistdetail/:targetdetail', async (req, res) => {
   res.json(getTargetList);
 })
 
-app.post('/subscribe', (req, res) => {
+app.post('/subscribe', async (req, res) => {
   console.log('post Data')
-  console.log(req.body.emailSubscribe)
-  res.json({'post': 'success'});
+  console.log(req.body.emailSubscribe.emailSubscribe)
+  const query = {
+    Email: req.body.emailSubscribe.emailSubscribe, 
+    Created: new Date()};
+  const postSubscribe = await insertOneData('ExerciseDB', 'Suscribe',query).
+  
+  setTimeout(() => {
+    console.log('waiting.........')
+    
+    res.json({'post': 'success','PostSubmitted' : postSubscribe.acknowledged});
+  }, 4000);
+  
+})
+
+
+app.post('/contactus', async (req, res) => {
+  console.log('post Data')
+  const query = {
+    Name: req.body.name, 
+    Email: req.body.email, 
+    Message: req.body.email, 
+    Created: new Date()};
+    
+  console.log(query)
+  // change css 
+
+  const postContact = await insertOneData('ExerciseDB', 'ContactUs',query)
+  const postAPIResponse = {'post': 'success', 'page': 'Contact Us', 'PostSubmitted' : postContact.acknowledged}
+  setTimeout(() => {
+    console.log('waiting.........')
+    
+    console.log(postContact.acknowledged);
+    res.json(postAPIResponse);
+    // res.json(postAPIResponse);
+  }, 4000);
+  console.log('wait ended');
+  
 })
 
 

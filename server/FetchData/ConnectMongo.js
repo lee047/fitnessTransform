@@ -71,11 +71,31 @@ export async function readSpecificData(databaseName, collectionName, query,optio
     
     const myDB = client.db(databaseName);
     const myColl = myDB.collection(collectionName);
-    // const cursor = await myColl.find(query);
+
     const cursor = await myColl.find(query,options).toArray();
-    // const cursor = await myColl.find(query,options);
-    // console.log(query);
-    // console.log(cursor);
+  
+    return cursor;
+  }
+  finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+
+export async function insertOneData(databaseName, collectionName, query){
+  const client = await new MongoClient(uri);
+  if(!client){
+    return ; 
+  }
+
+  try {
+    // Establish and verify connection
+    
+    const myDB = client.db(databaseName);
+    const myColl = myDB.collection(collectionName);
+
+    const cursor = await myColl.insertOne(query);
+  
     return cursor;
   }
   finally {

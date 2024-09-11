@@ -4,13 +4,10 @@ import React from 'react'
 
 
 export const ExerciseContainerDisplay = (ExerciseDetailData:any) => {
-    // const item =   ExerciseDetailData
-    // console.log( ExerciseDetailData)
   return (
     
     <>  
         {console.log(ExerciseDetailData.ExerciseDetailData.instructions.map((e: string) => {return e}))}
-        {/* {console.log(ExerciseDetailData.ExerciseDetailData.instructions)} */}
         {console.log(typeof ExerciseDetailData)}
         <div className='exercise-container'>
             <div className='exercise-content-heading'>

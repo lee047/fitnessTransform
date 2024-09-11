@@ -63,6 +63,9 @@
     font-size: 1.2rem;
   }
 
+  .contact-form-wrapper input .error{
+    border-bottom: 2px solid red;
+  }
   .contact-form-wrapper input:focus, .contact-form-wrapper textarea:focus,
    .contact-form-wrapper input:focus-visible, .contact-form-wrapper textarea:focus-visible{
     outline: 0;
@@ -73,4 +76,24 @@
     width: 12%;
     font-size: 1.5rem;
     box-shadow: 2px 2px 2px #bcb8b8;
+    width: 100px
   }
+
+
+  .contact-error-meesage{
+    max-height: 3rem;
+    /* background-color: rgba(255, 0, 0, 0.471); */
+  }
+
+  .contact-error-meesage p {
+    font-size: 0.8rem;
+    color: red;
+  } 
+
+ .loading{
+  pointer-events: none;
+  cursor: default;
+  font-size: 1.8rem;
+  padding: 1rem;
+  width: 150px;
+ }

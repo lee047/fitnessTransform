@@ -213,6 +213,7 @@ textarea{
   background-color: var(--white-color);
   border-radius: 10px;
   color: var(--primary-black);
+  background-color: var(--primary-dark-grey);
 }
 
 .subscribe-btn-container input{
@@ -222,8 +223,12 @@ textarea{
   font-size: 1.2rem;
   font-weight: 600;
 }
-.subscribe-btn-container a{
-  padding: 1.95rem 2rem 2.05rem 2rem;
+
+.subscribe-btn-container input:focus-visible{
+  outline: var(--primary-yellow) solid 1px;
+}
+.subscribe-btn-container button{
+  padding: 2rem 2rem 2rem 2rem;
   border-radius: 10px;
   font-size: 1.2rem;
   font-weight: 600;
@@ -233,7 +238,18 @@ textarea{
   
 
 }
-
+.subscribeError{
+  padding: 0.5rem;
+  margin-bottom: 10px;
+  background-color: var(--primary-yellow);
+  border-radius: 10px;
+}
+.subscribeError p{
+  padding-left: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background-color: var(--primary-yellow);
+}
 /* Subscribe End */
 
 /* Footer Start */

@@ -289,3 +289,133 @@
     color: var(--primary-black);
 }
 
+/* Modal Start */
+
+.modal-dark-overlay-bg{
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100vw;
+    height: 100vh;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    align-items: center;
+}
+
+.modal-background{
+    width: 90%;
+    height: 90%;
+    margin:auto;
+    background: white;
+    /* color: white; */
+    z-index: 10;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+}
+
+
+.exercise-modal-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-close-btn{
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem;
+}
+.modal-close-btn img{
+    height: 50px;
+    cursor: pointer;
+}
+
+.exercise-modal-content-heading{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 1rem 0;
+}
+
+.exercise-modal-content-heading p:first-child{
+    color: var(--primary-yellow);
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.exercise-modal-content-heading p:last-child{
+    color: var(--primary-dark);
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.exercise-modal-details-container {
+    display: flex;
+    flex-direction: row;
+    padding: 2% 0;
+}
+
+.exercise-modal-details-wrapper{
+    flex: 0.6;
+    padding: 1rem;
+}
+
+.exercise-modal-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 1% 2%;
+    border-bottom: 2px solid var(--primary-yellow);
+}
+
+.exercise-modal-details p:first-child{
+    padding: 3%;
+    font-size: 1.3rem;
+   
+}
+.exercise-modal-details p:last-child{
+    padding: 3%;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.exercise-modal-details-second-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 5%;
+}
+
+.exercise-modal-details-second {
+    display: flex;
+    flex-direction: column;
+    border-left: 2px solid var(--primary-yellow);
+    padding-left: 1rem;
+    font-weight: 500;
+}
+.exercise-modal-details-second-container  p{
+    padding: 5%;
+    font-size: 1.3rem;
+   
+}
+
+.exercise-modal-instructions-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 500px;
+    margin-left: 2rem;
+    margin-top: 8%;
+}
+
+.exercise-modal-instructions-container h3{
+    padding-bottom: 1rem;
+}
+.exercise-modal-instructions{
+    border-left: 2px solid var(--primary-yellow);
+    padding: 1rem;
+}
+
+
+/* Modal End */

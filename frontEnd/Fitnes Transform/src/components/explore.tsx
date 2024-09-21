@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react'
 import '../pages/home/home.css'
 import {getExerciseData} from '../../utilities/fetchData'
-
+import {ExerciseModal} from './exerciseModal'
 const URL = 'http://localhost:3000/'
 
 export const Explore = () => {
@@ -11,6 +11,8 @@ export const Explore = () => {
   const [resultScrollPosition, setResultScrollPosition] = useState(0);
   const MainRef = useRef<HTMLInputElement>(null);
   const resultsRef = useRef<HTMLInputElement>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [ExerciseDetailsData, setExerciseDetailsData] = useState<any[]>([]);
 
   async function getBodyPartsNameData(){
     const URLbodypart = URL + 'bodyparts/'
@@ -77,7 +79,17 @@ export const Explore = () => {
       current.scrollTo({top: scrollAmount, behavior: "smooth"})
     }
   }
+
+  async function getExerciseDetailsData(input:string){
+    console.log('exercise details from ' + URL+'exercise/'+input)
+    console.log(ExerciseDetailsData);
+    const exerciseData = await getExerciseData(URL+'exercise/'+input)
+    setExerciseDetailsData(exerciseData[0].Data);
+    console.log(exerciseData[0].Data)
+    setIsModalOpen(true)
+}
   return (
+    
     <div className='explore-exercise-hero'>
       <h1>Explore Workouts and Exercises</h1>
       <div className='explore-exercise-wrapper'>
@@ -86,8 +98,9 @@ export const Explore = () => {
           <img src='../../public/images/arrow-up-black.png' onClick={(e) => handleScrollBodyParts('up') }/>
         </div>
          <div className='explore-exercise-results' ref={MainRef}>
-          {bodyPartsExerciseList.map((e) => { return <p>{e.name}</p>})}
+          {bodyPartsExerciseList.map((e) => { return <p onClick={() => {getExerciseDetailsData(e.id)}}>{e.name}</p>})}
          </div>
+         {isModalOpen && <ExerciseModal setIsModalOpen={setIsModalOpen} ExerciseDetailsData={ExerciseDetailsData}/>}
           <div className="explore-exercise-scroll-btn">
             <img src='../../public/images/arrow-down-black.png' onClick={(e) => handleScrollBodyParts('down') }/>
           </div>

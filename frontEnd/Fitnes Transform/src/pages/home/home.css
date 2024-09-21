@@ -154,7 +154,9 @@
 }
 
 .explore-exercise-results p {
-    padding: 1rem 5rem;
+    max-width: 280px;
+    text-wrap: wrap;
+    padding: 1rem 2rem;
     background-color: var(--primary-black);
     color: var(--white-color);
     border-radius: 10px;

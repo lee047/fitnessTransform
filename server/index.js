@@ -61,9 +61,36 @@ app.get('/exercisename/:exericseName', async (req, res) => {
 })
 
 
+app.get('/exercisenamedetails/:exericseName', async (req, res) => {
+  const query = {Name : req.params.exericseName}
+  const getExerciseName = await readData('ExerciseDB', 'bodyparts',{});
+  const options = {projection: {Name: 1, Data: { id: 1, name: 1 } }}
+  let cursor = []
+  
+  const Ismatched = getExerciseName[0].bodyPart.some((element) => {
+    const paraName = element.toLowerCase();
+    console.log(paraName + ' == ' + req.params.exericseName);
+    
+      if(paraName == req.params.exericseName){
+        return true;
+      }
+      return false
+  });
+
+  if(Ismatched){
+    cursor = await readSpecificData('ExerciseDB','ExerciseByName',query,options);
+  }else {
+    cursor = {ErrorMessage: 'parameter is ' + req.params.exericseName+ ' not valid'}
+  }
+
+res.json(cursor)
+})
+
 
 app.get('/bodyparts', async (req, res) => {
   const getBodyparts = await readData('ExerciseDB','bodyparts',{});
+  console.log('fetch call made for bodyParts');
+  console.log(getBodyparts);
   res.json(getBodyparts[0].bodyPart);
 })
 
@@ -116,7 +143,7 @@ app.post('/subscribe', async (req, res) => {
   const query = {
     Email: req.body.emailSubscribe.emailSubscribe, 
     Created: new Date()};
-  const postSubscribe = await insertOneData('ExerciseDB', 'Suscribe',query).
+  const postSubscribe = await insertOneData('ExerciseDB', 'Subscribe',query);
   
   setTimeout(() => {
     console.log('waiting.........')
@@ -151,6 +178,15 @@ app.post('/contactus', async (req, res) => {
   
 })
 
+
+app.get('/exercisenamedetails/:bodypartsname', async (req, res) => {
+  const query = {Name: req.params.bodypartsname}
+  console.log(req.params.bodypartsname)
+  const options = {projection: {Data: { id: 1, name: 1, bodyPart:1 }}}
+  const getExerciseName = await readSpecificData('ExerciseDB','ExerciseByName',query,options);
+  console.log(getExerciseName)
+  res.json(getExerciseName);
+})
 
 app.get('/bodyparts', (req, res) => {
   res.json(bodypartsData);

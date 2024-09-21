@@ -56,6 +56,7 @@ async function getSubTragetData(input:string){
     if(input){
        if(isMainElementActive == 'bodyparts' ){
             const subTargetContent = await getExerciseData(URL+'bodypartsdetail/'+ input);
+            console.log(URL+'bodypartsdetail/'+ input);
             setSubTargetData(subTargetContent);
         }else if (isMainElementActive == 'equipment'){
             
@@ -114,7 +115,7 @@ const exercisePageBredcrumbs = [{ page : 'Home' , pageUrl: '/'},{page:'Exercise'
                     <img src='../../../public/images/arrow-right-solid-black.png'/>
                 </div>
                 <div className='exercise-suboptions-wrapper'>
-                    <p>All Four Squad Strech</p>
+                    
                     {SubTargetData.map((e) => { return <p className={e.Data.id} onClick={() => {getExerciseDetailsData(e.Data.id)}}>{e.Data.name}</p>})}
                 </div>
                 <div className='bottom-arrow'>

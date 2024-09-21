@@ -107,6 +107,8 @@
 }
 .exercise-suboptions-container .top-arrow img, .exercise-suboptions-container .bottom-arrow img{
     width: 40px;
+    cursor: pointer;
+    margin: 1rem;
 }
 
 .bottom-arrow img {
@@ -223,3 +225,37 @@
     border-left: 2px solid var(--primary-yellow);
     padding: 1rem;
 }
+
+
+/*  empty display  */
+
+@keyframes placeHolderShimmer {
+    0% {
+      background-position: -800px 0
+    }
+    100% {
+      background-position: 800px 0
+    }
+  }
+  
+  .text-box{
+    height: 20px;
+    width: 150px;
+  }
+
+  .text-box-lg{
+    height: 30px;
+    width: 120px;
+  }
+  .animation-empty-text {
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background-color: #f6f7f8;
+    background: linear-gradient(to right, #eeeeee 8%, #bbbbbb 18%, #eeeeee 33%);
+    background-size: 800px 104px;
+    /* height: 70px; */
+    position: relative;
+  }

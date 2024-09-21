@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import '../pages/home/home.css'
 import {getExerciseData} from '../../utilities/fetchData'
 
@@ -7,6 +7,10 @@ const URL = 'http://localhost:3000/'
 export const Explore = () => {
   const[bodyPartsList, setBodyPartsList] = useState<string[]>([]);
   const [bodyPartsExerciseList, setBodyPartsExerciseList] = useState<any[]>([]);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [resultScrollPosition, setResultScrollPosition] = useState(0);
+  const MainRef = useRef<HTMLInputElement>(null);
+  const resultsRef = useRef<HTMLInputElement>(null);
 
   async function getBodyPartsNameData(){
     const URLbodypart = URL + 'bodyparts/'
@@ -15,15 +19,13 @@ export const Explore = () => {
     console.log(URLbodypart);
     const bodyPartsDataList = await getExerciseData(URLbodypart)
     .then((res) => {
-      console.log(res);
+      // console.log(res);
       setBodyPartsList(res);
     });
     
   }
   // console.log(bodyPartsList);
   useEffect( () =>{
-    
-     
       getBodyPartsNameData();
       getExerciseDetails('back')
   },[])
@@ -43,30 +45,63 @@ export const Explore = () => {
         return e.Data;
       });
       setBodyPartsExerciseList(extractData)
-      console.log('Extract Data variable');
-      console.log(extractData)
+      // console.log('Extract Data variable');
+      // console.log(extractData)
     });
-    console.log(URL +'exercisenamedetails/' + input);
+    // console.log(URL +'exercisenamedetails/' + input);
   }
-  console.log(Object.keys(bodyPartsExerciseList).length)
-  console.log(bodyPartsExerciseList);
+  // console.log(Object.keys(bodyPartsExerciseList).length)
+  // console.log(bodyPartsExerciseList);
+
+  function handleScrollBodyParts(direction: 'up' | 'down'){
+    const {current } = MainRef;
+    
+    if(current){
+      const scrollOffSet = direction === 'down' ? -150 : 150;
+      let scrollAmount = scrollPosition + scrollOffSet;
+      console.log('moving position ' + direction + '  scroll OffSet : ' + scrollOffSet + '  scroll amount : ' + scrollAmount  )
+      setScrollPosition(scrollAmount);
+      current.scrollTo({top: scrollAmount, behavior: "smooth"})
+    }
+  }
+
+  
+  function handleScrollResults(direction: 'up' | 'down'){
+    const {current } = resultsRef;
+    
+    if(current){
+      const scrollOffSet = direction === 'down' ? -150 : 150;
+      let scrollAmount = resultScrollPosition + scrollOffSet;
+      console.log('moving position ' + direction + '  scroll OffSet : ' + scrollOffSet + '  scroll amount : ' + scrollAmount  )
+      setResultScrollPosition(scrollAmount);
+      current.scrollTo({top: scrollAmount, behavior: "smooth"})
+    }
+  }
   return (
     <div className='explore-exercise-hero'>
       <h1>Explore Workouts and Exercises</h1>
       <div className='explore-exercise-wrapper'>
         <div className='explore-exercise-results-wrapper'>
-        <div><img src='../../public/images/arrow-right-solid-black.png' onClick={() => window.scrollTo({top: 100, behavior: "smooth"})}/></div>
-         <div className='explore-exercise-results'>
+        <div className="explore-exercise-scroll-btn">
+          <img src='../../public/images/arrow-up-black.png' onClick={(e) => handleScrollBodyParts('up') }/>
+        </div>
+         <div className='explore-exercise-results' ref={MainRef}>
           {bodyPartsExerciseList.map((e) => { return <p>{e.name}</p>})}
          </div>
-         <div><img src='../../public/images/arrow-right-solid-black.png'/></div>
+          <div className="explore-exercise-scroll-btn">
+            <img src='../../public/images/arrow-down-black.png' onClick={(e) => handleScrollBodyParts('down') }/>
+          </div>
         </div>
         <div className='explore-exercise-options-wrapper'>
-        <div><img src='../../public/images/arrow-right-solid-black.png'/></div>
-          <div className='explore-exercise-options'>
+        <div className='explore-exercise-options-scroll-btn'>
+          <img src='../../public/images/arrow-up-black.png' onClick={(e) => handleScrollResults('up')}/>
+        </div>
+          <div className='explore-exercise-options' ref={resultsRef}>
           {bodyPartsList.map((e) => { return <p onClick={() => {  getExerciseDetails(e)}}>{e}</p>})}
           </div>
-          <div><img src='../../public/images/arrow-right-solid-black.png'/></div>
+          <div className='explore-exercise-options-scroll-btn'>
+            <img src='../../public/images/arrow-down-black.png' onClick={(e) => handleScrollResults('down')}/>
+          </div>
         </div>
       </div>
     </div>

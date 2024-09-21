@@ -1,10 +1,10 @@
 "use strict";
 
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { PageHeader } from '../../components/pageHeader'
 import {bodyparts, equipments, targets} from '../../../utilities/data'
-
 import { ExerciseContainerDisplay } from '../../components/exerciseContainerDisplay';
+import {ExerciseContainerDisplayEmpty} from'../../components/exerciseContainerDisplayEmpty';
 
 import './exercise.css'
 
@@ -12,12 +12,13 @@ import {getExerciseData} from '../../../utilities/fetchData'
 const URL = 'http://localhost:3000/'
 
 export const ExercisePage = () => {
-
+    const exercisePageBredcrumbs = [{ page : 'Home' , pageUrl: '/'},{page:'Exercise',pageUrl:'/Exercise' }]
     const [TargetData, setTargetData] = useState<string[]>([]);
     const [SubTargetData, setSubTargetData] = useState<any[]>([]);
     const [ExerciseDetailsData, setExerciseDetailsData] = useState<any[]>([]);
     const [isMainElementActive, setisMainElementActive] = useState('');
-
+    const scrollRef = useRef<HTMLInputElement>(null);
+    const [scrollPosition, setScrollPosition] = useState(0);
     // console.log(TargetData);
     // console.log(Array.isArray(TargetData));
 
@@ -79,8 +80,19 @@ async function getExerciseDetailsData(input:string){
     console.log(exerciseData[0].Data)
 }
     
+function handleScroll(direction: 'up' | 'down'){
+    const {current } = scrollRef;
+    
+    if(current){
+      const scrollOffSet = direction === 'down' ? -150 : 150;
+      
+      let scrollAmount = scrollPosition + scrollOffSet;
+      console.log('moving position ' + direction + '  scroll OffSet : ' + scrollOffSet + '  scroll amount : ' + scrollAmount + ' scroll positions: ' + scrollPosition )
+      setScrollPosition(scrollAmount);
+      current.scrollTo({top: scrollPosition, behavior: "smooth"})
+    }
+  }
 
-const exercisePageBredcrumbs = [{ page : 'Home' , pageUrl: '/'},{page:'Exercise',pageUrl:'/Exercise' }]
   return (
     <>
     
@@ -112,14 +124,14 @@ const exercisePageBredcrumbs = [{ page : 'Home' , pageUrl: '/'},{page:'Exercise'
             <div className='exercise-suboptions-container'> 
                 <h3>Exercise</h3>
                 <div className='top-arrow'>
-                    <img src='../../../public/images/arrow-right-solid-black.png'/>
+                    <img src='../../../public/images/arrow-up-black.png' onClick={() => {handleScroll('up')}}/>
                 </div>
-                <div className='exercise-suboptions-wrapper'>
+                <div className='exercise-suboptions-wrapper' ref={scrollRef}>
                     
                     {SubTargetData.map((e) => { return <p className={e.Data.id} onClick={() => {getExerciseDetailsData(e.Data.id)}}>{e.Data.name}</p>})}
                 </div>
                 <div className='bottom-arrow'>
-                    <img src='../../../public/images/arrow-right-solid-black.png'/>
+                    <img src='../../../public/images/arrow-down-black.png' onClick={ () => {handleScroll('down')}}/>
                 </div>
             </div>
          
@@ -127,9 +139,7 @@ const exercisePageBredcrumbs = [{ page : 'Home' , pageUrl: '/'},{page:'Exercise'
             { Object.keys(ExerciseDetailsData).length > 0 && 
            
             <ExerciseContainerDisplay ExerciseDetailData={ExerciseDetailsData} />}
-            { Object.keys(ExerciseDetailsData).length == 0 && 
-          
-           <p>showing data in soon</p>}
+            { Object.keys(ExerciseDetailsData).length == 0 &&  <ExerciseContainerDisplayEmpty />}
            
         </div>
         }

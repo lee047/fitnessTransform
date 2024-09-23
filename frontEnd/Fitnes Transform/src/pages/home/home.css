@@ -1,6 +1,8 @@
 
 @import '../../index.css';
 
+
+
 .hero-container{
     background-image:url('../../../public/images/Hero-Bg.jpg');
     height: 90vh;
@@ -419,3 +421,238 @@
 
 
 /* Modal End */
+
+
+/* Media Query Start */
+
+/* Small devices such as large phones (640px and up) */
+@media only screen and (max-width: 640px) and (min-width: 200px)  {
+
+    html,body{
+        overflow-x: hidden;
+    }
+
+    .nav-container{
+        display: none !important;
+    }
+
+    .moblie-nav{
+        display: block !important;
+    }
+      
+    .moblie-nav-container{
+        display: flex;
+    }
+
+    .hero-header {
+        padding-top: 4.5rem;
+        font-size: 3rem !important;
+    }
+    .hero-header-subtext {
+        font-size: 2rem !important;
+    }
+
+    .first-featuer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .first-featuer-container img {
+        height: 280px;
+        width: 380px;
+    }
+
+    .product-featuer-container {
+        flex-direction: column;
+    }
+    /* .product-featuer-container img {
+        height: 220px;
+    } */
+    .product-featuer-container .product-featuer-text-container h3 {
+        font-size: 2.8rem;
+    }
+
+    .parallex-banner-container-text h1 {
+        font-size: 2.2rem;
+    }
+    .parallex-banner-container-btn {
+        padding-top: 3.5rem;
+        padding-left: 20%;
+    }
+    .parallex-banner-container-text .btn {
+        font-size: 2rem;
+    }
+
+    .subscribe-text-container p {
+        font-size: 0.5rem !important;
+    }
+    .subscribe-container > .subscribe-text-container h1 {
+        font-size: 1.3rem !important;
+    }
+    .subscribe-container{
+        flex-direction: column !important;
+    }
+    .subscribe-container .subscribe-btn-container input {
+        padding: 1rem !important;
+        font-size: 1rem !important;
+        width: 200px !important;
+    }
+    .subscribe-container .subscribe-btn-container button {
+        padding: 1rem;
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+
+    .exercise-content-heading{
+        flex-direction: column;
+    }
+    .exercise-content-heading p:last-child{
+        padding: 0 1rem;
+    }
+    .exercise-options-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .exercise-options-container span{
+        font-size: 1.5rem;
+    } 
+    .exercise-options-container .selected{
+        font-size: 2rem;
+    }
+    .exercise-details-container{
+        padding: 10% 0 !important;
+    }
+    .exercise-results-wrapper p {
+        font-size: 1.4rem;
+    }
+    .exercise-content-container{
+        flex-direction: column !important;
+    }
+    .exercise-details-container{
+        flex-direction: column !important;
+    }
+    .exercise-instructions-container {
+        margin-top: 20%;
+        margin-right: 10%;
+        margin-left: 10%;
+    }
+
+    .contact-image-container{
+        display: none;
+    }
+}
+
+/* Medium devices such as tablets (768px and up) */
+@media only screen and (max-width: 820px) and (min-width: 640px)  {
+    .nav-container{
+        display: none !important;
+    }
+
+    .moblie-nav{
+        display: block !important;
+    }
+      
+    .moblie-nav-container{
+        display: flex;
+    }
+
+    .first-featuer-container img {
+        height: 280px;
+        width: 250px;
+        border-radius: 20px;
+    }
+    .featuers-text-wrapper {
+        top: 60%;
+    }
+    .featuers-text-wrapper p {
+        font-size: 0.8rem;
+    }
+    .featuers-text-wrapper h3 {
+       font-size: 0.8rem;
+    }
+
+    .product-featuer-container img {
+        height: 220px;
+    }
+    .product-featuer-text-container h3 {
+        font-size: 1.5rem;
+    }
+    .parallex-banner-container-text {
+        padding-left: 2rem;
+    }
+
+
+    .subscribe-text-container p {
+        letter-spacing: 0.2rem;
+        font-size: 0.6rem;
+    }
+    .subscribe-container .subscribe-text-container h1 {
+        margin-top: 1rem;
+        font-size: 2.1rem;
+    }
+    .subscribe-container .subscribe-btn-container input {
+        padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+        font-size: 1.2rem;
+        width: 200px;
+    }
+    .subscribe-btn-container button {
+        padding: 1.5rem;    
+    }
+
+    .exercise-modal-details-container {
+        flex-direction: column;
+    }
+
+    .contact-image-container{
+        display: none;
+    }   
+}
+
+/* Large devices such as laptops (1024px and up) */
+@media only screen and (max-width: 1024px) and (min-width: 820px) {
+
+    .hero-header {
+        padding-top: 50%;
+        font-size: 5.5rem;
+    }
+    .hero-header-subtext {
+        font-size: 2.5rem;
+    }
+
+    .first-featuer-container .featuers-wrapper img{
+        height: 280px;
+        width: 300px;
+        border-radius: 20px;
+    }
+    .featuers-text-wrapper p {
+        padding-left: 0.8rem;
+        letter-spacing: 0.3rem;
+    }
+    .featuers-text-wrapper h3 {
+        padding-top: 0.1rem;
+        padding-left: 1.5rem;
+        width: 70%;
+        font-size: 0.9rem;
+    }
+    .product-featuer-container img {
+        border-radius: 20px;
+        height: 250px;
+    }
+    .product-featuer-text-container h3 {
+        font-size: 2.2rem;
+    }
+
+
+    .parallex-banner-container-text {
+        padding-left: 2rem;
+    }
+    .btn {
+        font-size: 3rem;
+    }
+
+    .exercise-modal-details-container {
+        flex-direction: column;
+    }
+}
+
+
+/* Medai Query End */

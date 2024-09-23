@@ -163,7 +163,6 @@ textarea{
 .nav-container{
   padding-right: 1rem;
   margin-right: 2rem;
-
 }
 .nav-container ul {
   display: flex;
@@ -175,7 +174,53 @@ textarea{
   margin-right: 2rem;
  }
 
+.moblie-nav{
+  display: none;
+}
 
+.moblie-nav img{
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.moblie-nav-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 90;
+  background-color: rgba(0, 0, 0, 0.607);
+}
+
+.mobile-nav-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+}
+
+.moblie-nav-btn{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.moblie-nav-btn img{
+  height: 35px;
+  width: 35px;
+}
+.mobile-nav-options-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mobile-nav-options-wrapper ul > li{
+  padding: 1rem;
+  font-size: 1.8rem;
+}
 
 
 
